@@ -15,7 +15,9 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.anonymous.AlarmClockTest",
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       }
     },
     "android": {
@@ -49,7 +51,8 @@
           "recordAudioAndroid": false
         }
       ],
-      "expo-notifications"
+      "expo-notifications",
+      "expo-asset"
     ]
   }
 }
