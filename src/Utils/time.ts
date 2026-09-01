@@ -1,3 +1,5 @@
+import { RepeatPreset } from '../constants/Types';
+
 export function pad2(value: number) {
   return String(value).padStart(2, '0');
 }
@@ -66,6 +68,31 @@ export function formatCountdown(target: Date) {
   const minutes = totalMinutes % 60;
   if (hours <= 0) return `${minutes} min`;
   return `${hours} hr ${minutes} min`;
+}
+
+export function formatCountdownHMS(target: Date) {
+  const diff = Math.max(0, target.getTime() - Date.now());
+  const hours = Math.floor(diff / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+  return `${hours}h ${minutes}m ${seconds}s`;
+}
+
+export function weekdayShort(date: Date) {
+  return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][date.getDay()];
+}
+
+export function monthDayUpper(date = new Date()) {
+  return date.toLocaleString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+}
+
+export function repeatFromDays(days: number[]): RepeatPreset {
+  const sorted = [...days].sort((a, b) => a - b).join(',');
+  if (sorted === '1,2,3,4,5') return 'weekdays';
+  if (sorted === '0,6') return 'weekends';
+  if (sorted === '0,1,2,3,4,5,6') return 'daily';
+  if (!days.length) return 'weekdays';
+  return 'custom';
 }
 
 export function ringsInLabel(repeat: string) {

@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Colors } from '../constants/Colors';
 import { ONBOARDING_TOTAL } from '../constants/Onboarding';
 import { NavigationController } from '../NavigationController/NavigationController';
@@ -9,16 +10,27 @@ interface Props {
   showLang?: boolean;
   onLang?: () => void;
   languageFlag?: string;
+  hideBack?: boolean;
 }
 
-export function OnboardingHeader({ step, showLang, onLang, languageFlag = '🇺🇸' }: Props) {
+export function OnboardingHeader({ step, showLang, onLang, languageFlag = '🇺🇸', hideBack }: Props) {
+  const pct = Math.min(100, (step / ONBOARDING_TOTAL) * 100);
   return (
     <View style={styles.wrap}>
-      <Pressable onPress={NavigationController.goBack} style={styles.back}>
-        <Ionicons name="chevron-back" size={20} color={Colors.text} />
-      </Pressable>
+      {hideBack ? (
+        <View style={{ width: 36 }} />
+      ) : (
+        <Pressable onPress={NavigationController.goBack} style={styles.back}>
+          <Ionicons name="chevron-back" size={20} color={Colors.text} />
+        </Pressable>
+      )}
       <View style={styles.track}>
-        <View style={[styles.fill, { width: `${Math.min(100, (step / ONBOARDING_TOTAL) * 100)}%` }]} />
+        <LinearGradient
+          colors={['#F5A623', '#C46A2C']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={[styles.fill, { width: `${pct}%` }]}
+        />
       </View>
       {showLang ? (
         <Pressable onPress={onLang} style={styles.flag}>
@@ -57,7 +69,6 @@ const styles = StyleSheet.create({
   },
   fill: {
     height: '100%',
-    backgroundColor: Colors.orange,
     borderRadius: 2,
   },
   flag: {

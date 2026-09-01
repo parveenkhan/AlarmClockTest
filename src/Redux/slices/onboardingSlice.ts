@@ -16,6 +16,12 @@ interface OnboardingState {
   wakeGoal: string;
   snoozeHabit: string;
   morningGoal: string;
+  days: number[];
+  soundCategory: string;
+  soundId: string;
+  soundName: string;
+  playDuringMission: boolean | null;
+  heardFrom: string;
 }
 
 const initialState: OnboardingState = {
@@ -32,6 +38,12 @@ const initialState: OnboardingState = {
   wakeGoal: '7:30 AM',
   snoozeHabit: '',
   morningGoal: '',
+  days: [],
+  soundCategory: 'classic',
+  soundId: 'classic-0',
+  soundName: 'Default',
+  playDuringMission: null,
+  heardFrom: '',
 };
 
 const onboardingSlice = createSlice({
@@ -74,6 +86,27 @@ const onboardingSlice = createSlice({
     setMorningGoal(state, action: PayloadAction<string>) {
       state.morningGoal = action.payload;
     },
+    toggleOnboardingDay(state, action: PayloadAction<number>) {
+      if (state.days.includes(action.payload)) {
+        state.days = state.days.filter((day) => day !== action.payload);
+      } else {
+        state.days = [...state.days, action.payload].sort((a, b) => a - b);
+      }
+    },
+    setOnboardingSound(
+      state,
+      action: PayloadAction<{ category: string; id: string; name: string }>,
+    ) {
+      state.soundCategory = action.payload.category;
+      state.soundId = action.payload.id;
+      state.soundName = action.payload.name;
+    },
+    setPlayDuringMission(state, action: PayloadAction<boolean>) {
+      state.playDuringMission = action.payload;
+    },
+    setHeardFrom(state, action: PayloadAction<string>) {
+      state.heardFrom = action.payload;
+    },
     completeOnboarding(state) {
       state.completed = true;
     },
@@ -94,6 +127,10 @@ export const {
   setWakeGoal,
   setSnoozeHabit,
   setMorningGoal,
+  toggleOnboardingDay,
+  setOnboardingSound,
+  setPlayDuringMission,
+  setHeardFrom,
   completeOnboarding,
   resetOnboarding,
 } = onboardingSlice.actions;

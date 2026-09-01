@@ -15,7 +15,17 @@ import WhyObjectScreen from '../Screens/Onboarding/WhyObjectScreen';
 import OnboardingMissionScreen from '../Screens/Onboarding/OnboardingMissionScreen';
 import HuntObjectsScreen from '../Screens/Onboarding/HuntObjectsScreen';
 import IdealTimeScreen from '../Screens/Onboarding/IdealTimeScreen';
+import DaysScreen from '../Screens/Onboarding/DaysScreen';
+import OnboardingSoundScreen from '../Screens/Onboarding/OnboardingSoundScreen';
+import MissionAudioScreen from '../Screens/Onboarding/MissionAudioScreen';
+import HearAboutScreen from '../Screens/Onboarding/HearAboutScreen';
+import FasterScreen from '../Screens/Onboarding/FasterScreen';
+import CommitmentScreen from '../Screens/Onboarding/CommitmentScreen';
 import BuildingPlanScreen from '../Screens/Onboarding/BuildingPlanScreen';
+import MorningPlanScreen from '../Screens/Onboarding/MorningPlanScreen';
+import PlanPreviewScreen from '../Screens/Onboarding/PlanPreviewScreen';
+import ReferralScreen from '../Screens/Onboarding/ReferralScreen';
+import CreateAccountScreen from '../Screens/Onboarding/CreateAccountScreen';
 import PaywallScreen from '../Screens/Onboarding/PaywallScreen';
 import HomeScreen from '../Screens/Home/HomeScreen';
 import EditAlarmScreen from '../Screens/Alarm/EditAlarmScreen';
@@ -58,7 +68,17 @@ export default function AppNavigator() {
         <Stack.Screen name="OnboardingMission" component={OnboardingMissionScreen} />
         <Stack.Screen name="HuntObjects" component={HuntObjectsScreen} />
         <Stack.Screen name="IdealTime" component={IdealTimeScreen} />
+        <Stack.Screen name="Days" component={DaysScreen} />
+        <Stack.Screen name="OnboardingSound" component={OnboardingSoundScreen} />
+        <Stack.Screen name="MissionAudio" component={MissionAudioScreen} />
+        <Stack.Screen name="HearAbout" component={HearAboutScreen} />
+        <Stack.Screen name="Faster" component={FasterScreen} />
+        <Stack.Screen name="Commitment" component={CommitmentScreen} />
         <Stack.Screen name="BuildingPlan" component={BuildingPlanScreen} />
+        <Stack.Screen name="MorningPlan" component={MorningPlanScreen} />
+        <Stack.Screen name="PlanPreview" component={PlanPreviewScreen} />
+        <Stack.Screen name="Referral" component={ReferralScreen} />
+        <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
         <Stack.Screen name="Paywall" component={PaywallScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="EditAlarm" component={EditAlarmScreen} options={{ animation: 'slide_from_bottom' }} />

@@ -1,6 +1,7 @@
 export interface SoundItem {
   id: string;
   name: string;
+  color?: string;
 }
 
 export interface SoundCategory {
@@ -19,14 +20,12 @@ export const SOUND_CATEGORIES: SoundCategory[] = [
     id: 'classic',
     name: 'Classic',
     count: 24,
-    sounds: makeSounds('classic', [
-      'Beacon',
-      'Radar',
-      'Summit',
-      'Chime',
-      'Pulse',
-      'Alarm Classic',
-    ]),
+    sounds: [
+      { id: 'classic-0', name: 'Default', color: '#8E8E93' },
+      { id: 'classic-1', name: 'Alarm Clock', color: '#3D4A5C' },
+      { id: 'classic-2', name: 'Reveille', color: '#6B7A3A' },
+      { id: 'classic-3', name: 'Sparkles', color: '#A78BFA' },
+    ],
   },
   {
     id: 'aggressive',
@@ -51,7 +50,12 @@ export const SOUND_CATEGORIES: SoundCategory[] = [
     id: 'viral',
     name: 'Viral',
     count: 26,
-    sounds: makeSounds('viral', ['Trending 1', 'Trending 2', 'Meme Horn', 'Get Up Bro']),
+    sounds: [
+      { id: 'viral-0', name: 'Mindful Earth', color: '#1F6F6A' },
+      { id: 'viral-1', name: 'Epic Brass', color: '#E2B03A' },
+      { id: 'viral-2', name: 'Neon', color: '#A855F7' },
+      { id: 'viral-3', name: 'Dialed', color: '#C2410C' },
+    ],
   },
   {
     id: 'cinematic',
@@ -73,6 +77,16 @@ export const SOUND_CATEGORIES: SoundCategory[] = [
   },
 ];
 
+export const ONBOARDING_SOUNDS = {
+  classic: SOUND_CATEGORIES[0].sounds.slice(0, 4),
+  viral: SOUND_CATEGORIES.find((item) => item.id === 'viral')?.sounds ?? [],
+};
+
 export function getSoundCategory(id: string) {
   return SOUND_CATEGORIES.find((item) => item.id === id) ?? SOUND_CATEGORIES[0];
+}
+
+export function getSound(categoryId: string, soundId: string) {
+  const category = getSoundCategory(categoryId);
+  return category.sounds.find((item) => item.id === soundId) ?? category.sounds[0];
 }

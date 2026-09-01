@@ -11,7 +11,7 @@ export default function IdealTimeScreen() {
   const minute = useAppSelector((s) => s.onboarding.idealMinute);
   const dispatch = useAppDispatch();
   return (
-    <OnboardingFrame step={21} onContinue={() => NavigationController.navigate('BuildingPlan')}>
+    <OnboardingFrame step={21} onContinue={() => NavigationController.navigate('Days')}>
       <Text style={styles.title}>What time do you want to be up?</Text>
       <Text style={styles.sub}>Your ideal daily wake up time.</Text>
       <TimeWheel hour={hour} minute={minute} onChange={(h, m) => dispatch(setIdealTime({ hour: h, minute: m }))} />

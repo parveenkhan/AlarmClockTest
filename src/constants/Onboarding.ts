@@ -1,4 +1,4 @@
-export const ONBOARDING_TOTAL = 22;
+export const ONBOARDING_TOTAL = 32;
 
 export type QuizId =
   | 'morningPerson'
@@ -116,6 +116,48 @@ export const HUNT_OBJECTS = [
   { id: 'towel', label: 'Towel', emoji: '🧺' },
   { id: 'socket', label: 'Outlet', emoji: '🔌' },
   { id: 'pillow', label: 'Pillow', emoji: '🛏️' },
+];
+
+export const WEEK_DAYS = [
+  { label: 'Monday', day: 1 },
+  { label: 'Tuesday', day: 2 },
+  { label: 'Wednesday', day: 3 },
+  { label: 'Thursday', day: 4 },
+  { label: 'Friday', day: 5 },
+  { label: 'Saturday', day: 6 },
+  { label: 'Sunday', day: 0 },
+];
+
+export const HEAR_ABOUT = [
+  { id: 'doctor', label: 'Doctor', icon: 'medkit-outline', color: '#1C1C1E' },
+  { id: 'instagram', label: 'Instagram', icon: 'logo-instagram', color: '#E1306C' },
+  { id: 'facebook', label: 'Facebook', icon: 'logo-facebook', color: '#1877F2' },
+  { id: 'twitter', label: 'Twitter', icon: 'logo-twitter', color: '#111111' },
+  { id: 'youtube', label: 'YouTube', icon: 'logo-youtube', color: '#FF0000' },
+  { id: 'reddit', label: 'Reddit', icon: 'logo-reddit', color: '#FF4500' },
+] as const;
+
+export const SETUP_STEPS = [
+  { title: 'Configuring your goals', done: 'Morning routine ready' },
+  { title: 'Setting your mission', done: 'selected' },
+  { title: 'Setting alarm tone', done: 'Sound locked in' },
+  { title: 'Scheduling your alarm', done: 'Set for' },
+  { title: 'Setting up wake receipt', done: 'Wake receipt ready' },
+];
+
+export const PLAN_QUOTES = [
+  {
+    name: 'Sarah M.',
+    initials: 'SM',
+    tint: '#F3D4C4',
+    quote: 'I used to hit snooze for an hour every morning. Now I\'m up on my first alarm and actually have time for breakfast.',
+  },
+  {
+    name: 'James R.',
+    initials: 'JR',
+    tint: '#D7E4F5',
+    quote: 'The mission feature is genius. Having one small task to complete means I can\'t just roll over and go back to sleep.',
+  },
 ];
 
 export const LANGUAGES = [

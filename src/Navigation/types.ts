@@ -14,7 +14,17 @@ export type RootStackParamList = {
   OnboardingMission: undefined;
   HuntObjects: undefined;
   IdealTime: undefined;
+  Days: undefined;
+  OnboardingSound: undefined;
+  MissionAudio: undefined;
+  HearAbout: undefined;
+  Faster: undefined;
+  Commitment: undefined;
   BuildingPlan: undefined;
+  MorningPlan: undefined;
+  PlanPreview: undefined;
+  Referral: undefined;
+  CreateAccount: undefined;
   Paywall: undefined;
   Home: undefined;
   EditAlarm: { alarmId?: string };

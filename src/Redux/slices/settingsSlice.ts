@@ -5,6 +5,7 @@ interface SettingsState {
   vibration: boolean;
   showOnLockScreen: boolean;
   darkMode: boolean;
+  silenceDuringMission: boolean;
 }
 
 const initialState: SettingsState = {
@@ -12,6 +13,7 @@ const initialState: SettingsState = {
   vibration: true,
   showOnLockScreen: true,
   darkMode: false,
+  silenceDuringMission: false,
 };
 
 const settingsSlice = createSlice({
@@ -21,8 +23,11 @@ const settingsSlice = createSlice({
     toggleSetting(state, action: PayloadAction<keyof SettingsState>) {
       state[action.payload] = !state[action.payload];
     },
+    setSilenceDuringMission(state, action: PayloadAction<boolean>) {
+      state.silenceDuringMission = action.payload;
+    },
   },
 });
 
-export const { toggleSetting } = settingsSlice.actions;
+export const { toggleSetting, setSilenceDuringMission } = settingsSlice.actions;
 export default settingsSlice.reducer;

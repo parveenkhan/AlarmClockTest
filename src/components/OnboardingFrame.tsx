@@ -13,6 +13,10 @@ interface Props {
   showLang?: boolean;
   onLang?: () => void;
   languageFlag?: string;
+  buttonTitle?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+  hideBack?: boolean;
 }
 
 export function OnboardingFrame({
@@ -23,14 +27,28 @@ export function OnboardingFrame({
   showLang,
   onLang,
   languageFlag,
+  buttonTitle = 'Continue',
+  hideHeader,
+  hideFooter,
+  hideBack,
 }: Props) {
   return (
     <Screen patterned={false} style={{ backgroundColor: Colors.onboarding }}>
-      <OnboardingHeader step={step} showLang={showLang} onLang={onLang} languageFlag={languageFlag} />
+      {hideHeader ? null : (
+        <OnboardingHeader
+          step={step}
+          showLang={showLang}
+          onLang={onLang}
+          languageFlag={languageFlag}
+          hideBack={hideBack}
+        />
+      )}
       <View style={styles.body}>{children}</View>
-      <View style={styles.footer}>
-        <PrimaryButton title="Continue" onPress={onContinue} disabled={disabled} />
-      </View>
+      {hideFooter ? null : (
+        <View style={styles.footer}>
+          <PrimaryButton title={buttonTitle} onPress={onContinue} disabled={disabled} />
+        </View>
+      )}
     </Screen>
   );
 }

@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
-  key: 'wayk-v2',
+  key: 'wayk-v3',
   storage: AsyncStorage,
   whitelist: ['alarms', 'onboarding', 'user', 'settings'],
 };
