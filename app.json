@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AlarmClockTest",
+    "name": "Wayk",
     "slug": "AlarmClockTest",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,24 +9,47 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F7F4EE"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.AlarmClockTest"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.anonymous.AlarmClockTest",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#F7F4EE",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.AlarmClockTest"
+      "package": "com.anonymous.AlarmClockTest",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.VIBRATE",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.SCHEDULE_EXACT_ALARM",
+        "android.permission.USE_FULL_SCREEN_INTENT"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font",
+      "expo-audio",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Wayk needs the camera so you can complete photo missions and turn off your alarm.",
+          "microphonePermission": "Wayk needs the microphone so you can complete read-aloud missions.",
+          "recordAudioAndroid": false
+        }
+      ],
+      "expo-notifications"
+    ]
   }
 }

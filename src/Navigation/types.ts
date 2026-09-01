@@ -1,0 +1,37 @@
+import { MissionId } from '../constants/Missions';
+import { QuizId } from '../constants/Onboarding';
+
+export type RootStackParamList = {
+  Splash: undefined;
+  Quiz: { id: QuizId };
+  EnergyGraph: undefined;
+  Comparison: undefined;
+  UsualTime: undefined;
+  TargetTime: undefined;
+  Quote: undefined;
+  Biology: undefined;
+  WhyObject: undefined;
+  OnboardingMission: undefined;
+  HuntObjects: undefined;
+  IdealTime: undefined;
+  BuildingPlan: undefined;
+  Paywall: undefined;
+  Home: undefined;
+  EditAlarm: { alarmId?: string };
+  ChooseMission: { alarmId: string };
+  AlarmSound: { alarmId: string };
+  SoundLibrary: { alarmId: string; categoryId: string };
+  Insights: undefined;
+  DailyReports: undefined;
+  Groups: undefined;
+  GroupDetail: { groupId: string };
+  Settings: undefined;
+  TrackSleep: undefined;
+  AlarmRinging: { alarmId: string };
+  CameraMission: { alarmId: string; missionId: MissionId };
+  ShakeMission: { alarmId: string };
+  PushupMission: { alarmId: string };
+  MathMission: { alarmId: string; variant?: 'math' | 'memory' | 'typing' };
+  ReadAloudMission: { alarmId: string; missionId: MissionId };
+  MissionSuccess: { alarmId: string };
+};
