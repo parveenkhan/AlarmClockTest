@@ -5,10 +5,10 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './src/Redux/store';
-import AppNavigator from './src/Navigation/AppNavigator';
-import { NotificationBridge } from './src/components/NotificationBridge';
-import { Colors } from './src/constants/Colors';
+import { store, persistor } from './Src/Redux/Store/ConfigureStore';
+import MainNavigation from './Src/Navigation/MainNavigation';
+import { NotificationBridge } from './Src/Component/NotificationBridge';
+import { Colors } from './Src/Assets/Colors';
 
 export default function App() {
   return (
@@ -24,7 +24,7 @@ export default function App() {
           <SafeAreaProvider>
             <StatusBar style="dark" />
             <NotificationBridge />
-            <AppNavigator />
+            <MainNavigation />
           </SafeAreaProvider>
         </PersistGate>
       </Provider>

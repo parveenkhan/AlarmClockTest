@@ -1,4 +1,4 @@
-import { QuizId } from '../constants/Onboarding';
+import { QuizId } from '../Assets/Onboarding';
 import { RootStackParamList } from '../Navigation/types';
 
 type Dest = { name: keyof RootStackParamList; params?: object };

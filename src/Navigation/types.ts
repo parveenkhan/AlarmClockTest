@@ -1,5 +1,5 @@
-import { MissionId } from '../constants/Missions';
-import { QuizId } from '../constants/Onboarding';
+import { MissionId } from '../Assets/Missions';
+import { QuizId } from '../Assets/Onboarding';
 
 export type RootStackParamList = {
   Splash: undefined;

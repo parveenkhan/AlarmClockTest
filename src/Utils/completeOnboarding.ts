@@ -1,12 +1,10 @@
-import { AppDispatch } from '../Redux/store';
-import { completeOnboarding } from '../Redux/slices/onboardingSlice';
-import { upsertAlarm } from '../Redux/slices/alarmsSlice';
-import { setSilenceDuringMission } from '../Redux/slices/settingsSlice';
-import { setPro } from '../Redux/slices/userSlice';
-import { ensureNotificationPermission } from './alarmScheduler';
-import { NavigationController } from '../NavigationController/NavigationController';
+import { AppDispatch, RootState } from '../Redux/Store/ConfigureStore';
+import { completeOnboarding } from '../Redux/Actions/Onboarding.Action';
+import { upsertAlarm } from '../Redux/Actions/Alarm.Action';
+import { setSilenceDuringMission } from '../Redux/Actions/Settings.Action';
+import { setPro } from '../Redux/Actions/User.Action';
+import { ensureNotificationPermission } from '../Redux/Services/Alarm.Service';
 import { daysForRepeat, repeatFromDays } from './time';
-import { RootState } from '../Redux/store';
 
 export async function finishOnboardingPlan(dispatch: AppDispatch, state: RootState) {
   const onboarding = state.onboarding;
@@ -31,5 +29,4 @@ export async function finishOnboardingPlan(dispatch: AppDispatch, state: RootSta
     }),
   );
   dispatch(completeOnboarding());
-  NavigationController.resetToHome();
 }
